@@ -3,7 +3,8 @@ module.exports = function check(str, bracketsConfig) {
   let closeBrackets = bracketsConfig.map(item => item[1]);
   let stackBrackets = [];
   str = str.split("");
-  let openBracketsValue; closeBracketsValue
+  let openBracketsValue;
+  let closeBracketsValue;
 
   for (i = 0; i < str.length; i++) {
     openBracketsValue = str[i];
