@@ -9,9 +9,11 @@ module.exports = function check(str, bracketsConfig) {
   for (i = 0; i < str.length; i++) {
     openBracketsValue = str[i];
     if (openBrackets.includes(openBracketsValue)) {
-      stackBrackets.push(openBracketsValue);
-      continue;
-    }
+      if ((openBracketsValue != '|') || (openBracketsValue == '|' && !stackBrackets.includes('|'))) {
+        stackBrackets.push(openBracketsValue);
+        continue;
+      }
+  }
 
     closeBracketsValue = str[i];
     if (closeBrackets.includes(closeBracketsValue)) {
