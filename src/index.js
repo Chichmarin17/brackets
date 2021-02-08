@@ -1,3 +1,28 @@
 module.exports = function check(str, bracketsConfig) {
-  // your solution
+  let openBrackets = bracketsConfig.map(item => item[0]);
+  let closeBrackets = bracketsConfig.map(item => item[1]);
+  let stackBrackets = [];
+  let str = str.split("");
+  let openBracketsValue; closeBracketsValue
+
+  for (i = 0; i < str.length; i++) {
+    openBracketsValue = str[i];
+    if (openBrackets.includes(openBracketsValue)) {
+      stackBrackets.push(openBracketsValue);
+      continue;
+    }
+
+    closeBracketsValue = str[i];
+    if (closeBrackets.includes(closeBracketsValue)) {
+      openBracketsValue = stackBrackets.pop();
+      if (openBrackets.indexOf(openBracketsValue) != closeBrackets.indexOf(closeBracketsValue)) {
+        return false;
+      }
+    }
+  }
+
+  if (stackBrackets.length != 0) {
+    return false;
+  }
+  return true;
 }
