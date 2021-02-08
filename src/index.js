@@ -2,7 +2,7 @@ module.exports = function check(str, bracketsConfig) {
   let openBrackets = bracketsConfig.map(item => item[0]);
   let closeBrackets = bracketsConfig.map(item => item[1]);
   let stackBrackets = [];
-  let str = str.split("");
+  str = str.split("");
   let openBracketsValue; closeBracketsValue
 
   for (i = 0; i < str.length; i++) {
@@ -26,3 +26,6 @@ module.exports = function check(str, bracketsConfig) {
   }
   return true;
 }
+
+
+
