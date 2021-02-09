@@ -5,11 +5,16 @@ module.exports = function check(str, bracketsConfig) {
   str = str.split("");
   let openBracketsValue;
   let closeBracketsValue;
+  let similarBrackets = 0;
+
+  // return bracketsConfig;
 
   for (i = 0; i < str.length; i++) {
     openBracketsValue = str[i];
     if (openBrackets.includes(openBracketsValue)) {
-      if ((openBracketsValue != '|') || (openBracketsValue == '|' && !stackBrackets.includes('|'))) {
+      if (openBrackets.includes(openBracketsValue) && closeBrackets.includes(closeBracketsValue)) {
+        similarBrackets++;
+      } else {
         stackBrackets.push(openBracketsValue);
         continue;
       }
